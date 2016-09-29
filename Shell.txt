@@ -1,0 +1,14 @@
+windows下 定时删除tomcat日志和缓存。可以保留天数
+
+forfiles /p "e:\Program Files\Tomcat 7.0\logs" /s /m *.log /d -5 /c "cmd /c del @path
+forfiles /p "e:\Program Files\Tomcat 7.0\logs" /s /m *.txt /d -5 /c "cmd /c del @path
+
+****   红色的是目录。
+
+　　　  绿色是以.log和.txt后缀格式的文件将会被删除。
+
+　　　  蓝色是保留的天数，保留天数之内的日志和缓存不会被删除。
+
+创建一个bat文件，按需求修改以上的批处理命令，把修改后的命令放入bat文件， 然后保存。
+
+再通过系统上的任务计划，根据需求自定义创建任务，最后系统自动执行任务，达到自动删除tomcat日志和缓存的目的。
